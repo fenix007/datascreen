@@ -1,7 +1,7 @@
 {
-    "name": "siqwell/eagle",
-    "description": "Laravel wrapper for DataScreenplatform API",
-    "keywords": ["laravel", "eagleplatform", "api"],
+    "name": "siqwell/datascreen",
+    "description": "Laravel wrapper for DataScreen platform API",
+    "keywords": ["laravel", "datascreenplatform", "api"],
     "license": "proprietary",
     "type": "library",
     "authors": [

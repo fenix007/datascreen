@@ -43,6 +43,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function createRealConfig()
     {
         //TODO: fix no load config
-        return include __DIR__ . '/../../../../src/config/eagle.php';
+        return include __DIR__ . '/../../../../src/config/datascreen.php';
     }
 }

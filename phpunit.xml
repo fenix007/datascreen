@@ -11,11 +11,6 @@
          syntaxCheck="false"
          bootstrap="test/bootstrap.php"
         >
-    <testsuites>
-        <testsuite name="php-tmdb-api Test Suite">
-            <directory>./test/DataScreen/</directory>
-        </testsuite>
-    </testsuites>
 
     <groups>
         <exclude>

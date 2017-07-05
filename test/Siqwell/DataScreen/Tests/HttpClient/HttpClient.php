@@ -4,7 +4,6 @@ namespace Siqwell\DataScreen\Tests\HttpClient;
 
 use GuzzleHttp\Psr7\Response;
 use Kevinrob\GuzzleCache\CacheMiddleware;
-use GuzzleHttp\Exception\ConnectException;
 
 class HttpClient extends \Siqwell\DataScreen\HttpClient\HttpClient
 {
