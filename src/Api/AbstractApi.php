@@ -155,12 +155,12 @@ abstract class AbstractApi
     protected function getPattern(array $variables = [], $pattern = null)
     {
         $pattern = $pattern ?: $this->pattern;
-        $query =  count($variables) ? '?' . http_build_query($variables) : '';
+        $query =  count($variables) ? http_build_query($variables) : '';
 
         /* @var Uri $uri */
         $uri = $this->client->getConfig('base_uri');
 
-        return (string)$uri->withPath($pattern) . $query;
+        return $uri->withPath($pattern)->withQuery($query);
     }
     
     /**

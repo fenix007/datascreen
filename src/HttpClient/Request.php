@@ -61,20 +61,13 @@ class Request
      */
     public function replaceVariables()
     {
-        $queryAr = [];
         $path    = $this->getPath();
 
         foreach ($this->parameters as $key => $value) {
             if (strpos($path, '{' . $key . '}') !== false) {
                 $path = Str::replaceFirst('{' . $key . '}', $value, $path);
                 unset($this->parameters[$key]);
-            } else {
-                $queryAr[$key] = $value;
             }
-        }
-
-        if (count($queryAr)) {
-            //$path .=  '?' . http_build_query($queryAr);
         }
 
         $this->setPath($path);

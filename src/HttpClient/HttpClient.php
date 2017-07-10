@@ -1,5 +1,4 @@
 <?php
-
 namespace Siqwell\DataScreen\HttpClient;
 
 class HttpClient extends AbstractHttpClient

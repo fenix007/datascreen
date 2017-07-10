@@ -4,13 +4,12 @@ namespace Siqwell\DataScreen\HttpClient;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Facades\Cache;
 use Kevinrob\GuzzleCache\CacheMiddleware;
 use Kevinrob\GuzzleCache\Storage\LaravelCacheStorage;
 use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
 use Phlib\Guzzle\ConvertCharset;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
 use Siqwell\DataScreen\ApiToken;
 
 /**
@@ -52,26 +51,11 @@ abstract class AbstractHttpClient extends Client
         parent::__construct($config);
     }
 
-    /**
-     * @param UriInterface|string $uri
-     * @param array               $options
-     *
-     * @return ResponseInterface
-     */
-    public function get($uri, array $options = [])
+    private function injectAuthInfoToUri(Uri $uri): Uri
     {
-        $uri = $this->injectAuthInfoToUri($uri);
-
-        return parent::get($uri, $options);
-    }
-
-    private function injectAuthInfoToUri(string $uri): string
-    {
-        if (is_string($uri)) {
-            $query = parse_url($uri, PHP_URL_QUERY);
-
+        if ($secureParams = $this->getSecurityParamsToUri()) {
             // Returns a string if the URL has parameters or NULL if not
-            $uri .= ($query ? '&' : '?') . $this->getSecurityParamsToUri();
+            $uri = $uri->withQuery(($uri->getQuery() ? $uri->getQuery() . '&' : '') . $secureParams);
         }
 
         return $uri;
@@ -95,5 +79,18 @@ abstract class AbstractHttpClient extends Client
     protected function charsetMiddleware(): ConvertCharset
     {
         return new ConvertCharset();
+    }
+
+    public function __call($name, $arguments)
+    {
+        if (in_array($name, Request::METHODS)) {
+            $uri = $this->injectAuthInfoToUri($arguments[0]);
+
+            $options = $arguments[1] ?? [];
+
+            return parent::__call(strtolower($name), [$uri, $options]);
+        }
+
+        throw new \BadMethodCallException("There is not method $name in HtppClient class");
     }
 }
