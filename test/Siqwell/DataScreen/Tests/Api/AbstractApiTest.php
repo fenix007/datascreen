@@ -1,8 +1,8 @@
 <?php
 
-namespace Siqwell\Eagle\Tests\Api;
+namespace Siqwell\DataScreen\Tests\Api;
 
-use Siqwell\Eagle\Mappers\RecordMapper;
+use Siqwell\DataScreen\Mappers\RecordMapper;
 
 class AbstractApiTest extends TestCase
 {

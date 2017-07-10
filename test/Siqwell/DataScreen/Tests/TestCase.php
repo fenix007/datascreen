@@ -8,6 +8,8 @@ use Siqwell\DataScreen\Tests\HttpClient\HttpClient;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
+    use ArrayFunctions;
+
     protected function getPackageProviders($app)
     {
         return [
@@ -43,6 +45,14 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function createRealConfig()
     {
         //TODO: fix no load config
-        return include __DIR__ . '/../../../../src/config/datascreen.php';
+        return include __DIR__ . '/../../../../src/config/eagle.php';
+    }
+
+    public function assertEqualsExcept(array $one, array $two, array $fields)
+    {
+        $this->assertEquals(
+            $this->excludeArrayOrSubArrayFields($one, $fields),
+            $this->excludeArrayOrSubArrayFields($two, $fields)
+        );
     }
 }
