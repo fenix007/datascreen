@@ -5,7 +5,7 @@ namespace Siqwell\DataScreen\Tests\HttpClient;
 use GuzzleHttp\Psr7\Response;
 use Kevinrob\GuzzleCache\CacheMiddleware;
 
-class HttpClient extends \Siqwell\DataScreen\HttpClient\HttpClient
+class AbstractHttpClient extends \Siqwell\DataScreen\HttpClient\AbstractHttpClient
 {
     public function cacheMiddleware($ttl = 86400): CacheMiddleware
     {
