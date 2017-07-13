@@ -7,7 +7,7 @@ use Siqwell\DataScreen\Models\Transaction;
 
 /**
  * Class Mapper
- * @package Siqwell\Eagle\Mappers
+ * @package Siqwell\DataScreen\Mappers
  */
 class TransactionMapper extends AbstractMapper
 {
