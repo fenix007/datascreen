@@ -5,6 +5,7 @@ namespace Siqwell\DataScreen\Tests;
 use Orchestra\Database\ConsoleServiceProvider;
 use Siqwell\DataScreen\ApiToken;
 use Siqwell\DataScreen\Tests\HttpClient\HttpClient;
+use Siqwell\DataScreen\Tests\ArrayFunctions;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -45,7 +46,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function createRealConfig()
     {
         //TODO: fix no load config
-        return include __DIR__ . '/../../../../src/config/eagle.php';
+        return include __DIR__ . '/../../../../src/config/datascreen.php';
     }
 
     public function assertEqualsExcept(array $one, array $two, array $fields)
