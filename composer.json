@@ -15,7 +15,8 @@
         "guzzlehttp/guzzle": "^6.0",
         "kevinrob/guzzle-cache-middleware": "^1.5",
         "phlib/guzzle-middleware": "^1.0",
-        "illuminate/support": "^5.4"
+        "illuminate/support": "^5.4",
+        "fenix007/apiwrapper": "dev-master"
     },
     "autoload": {
         "psr-4": {

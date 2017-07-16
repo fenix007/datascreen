@@ -15,5 +15,7 @@ if ((!$loader = includeIfExists(__DIR__.'/../vendor/autoload.php')) && (!$loader
 
 $loader->add('Siqwell\DataScreen\Tests', __DIR__);
 
+define('ROOT_DIR', realpath(__DIR__ .'/../'));
+define('RESOURCES_DIR', realpath(__DIR__ .'/Siqwell/Eagle/Tests/Resources'));
 
 return $loader;

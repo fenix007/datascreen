@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2016-01-15",
+    "internal_id": "1234",
+    "rightholder": "fox",
+    "content": {
+      "catalog_id": "1111",
+      "title": "Title"
+    },
+    "channel": "VOD",
+    "resolution": "SD",
+    "country": "RU",
+    "price_without_vat": 31.33,
+    "share_per_unit": 21.33,
+    "buys": 1
+  },
+  {
+    "date": "2016-01-15",
+    "internal_id": "1235",
+    "rightholder": "fox",
+    "content": {
+      "catalog_id": "2222",
+      "title": "Title 2"
+    },
+    "channel": "VOD",
+    "resolution": "HD",
+    "country": "RU",
+    "price_without_vat": 71.33,
+    "share_per_unit": 41.33,
+    "buys": 5
+  }
+]
