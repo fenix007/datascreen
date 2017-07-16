@@ -31,15 +31,12 @@ class TransactionApiTest extends TestCase
     
     public function testUpdate()
     {
-        $request = $this->createRequestFromFile(
-                Methods::TRANSACTION_UPDATE['path'],
-                Methods::TRANSACTION_UPDATE['method'],
-                ['id' => self::TRANSACTION_ID]
-            );
+        $transaction = $this->jsonToModel(
+            Transaction::class,
+            $this->getDataFromFile($this->getAbsolutePath(Methods::TRANSACTION_UPDATE['path'], 'json'))
+        );
 
-        $res = $request->setMapper(TransactionMapper::class)->callMap($request);
-
-        $transaction = $this->transactionApi->update(self::TRANSACTION_ID, $request);
+        $transaction = $this->transactionApi->update($transaction);
 
         $this->assertInstanceOf(Transaction::class, $transaction);
     }

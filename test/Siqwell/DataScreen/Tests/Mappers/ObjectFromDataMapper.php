@@ -2,27 +2,13 @@
 
 namespace Siqwell\Tests\Mappers;
 
-use Siqwell\DataScreen\Common\ObjectHydrator;
-use Siqwell\DataScreen\Tests\ArrayFunctions;
+use Fenix007\Wrapper\Common\ObjectHydrator;
+use Fenix007\Wrapper\Models\AbstractModel;
 
 class ObjectFromDataMapper
 {
-    use ArrayFunctions;
-
-    /**
-     * @param string $model
-     * @param array $data
-     * @return \Siqwell\DataScreen\Models\AbstractModel
-     */
-    public function get(string $model, $data)
+    protected function hydrateToModel(string $model, array $data) : AbstractModel
     {
-        $objectHydrator = new ObjectHydrator();
-
-        $res =
-        if (!self::isAssoc($data)) {
-
-        }
-
-        return $objectHydrator->hydrate(new $model, $data);
+        return (new ObjectHydrator())->hydrate(new $model, $data);
     }
 }
