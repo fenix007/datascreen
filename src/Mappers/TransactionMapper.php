@@ -2,7 +2,7 @@
 
 namespace Siqwell\DataScreen\Mappers;
 
-use Siqwell\DataScreen\Common\ObjectHydrator;
+use Fenix007\Wrapper\Mappers\AbstractMapper;
 use Siqwell\DataScreen\Models\Transaction;
 
 /**
@@ -11,10 +11,6 @@ use Siqwell\DataScreen\Models\Transaction;
  */
 class TransactionMapper extends AbstractMapper
 {
-    public function get()
-    {
-        $objectHydrator = new ObjectHydrator();
-
-        return $objectHydrator->hydrate(new Transaction(), $this->response['transaction']);
-    }
+    protected $model = Transaction::class;
+    protected $field = 'transaction';
 }

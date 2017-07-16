@@ -2,6 +2,8 @@
 
 namespace Siqwell\DataScreen\Models;
 
+use Fenix007\Wrapper\Models\AbstractModel;
+
 class Transaction extends AbstractModel
 {
     public $internal_id;

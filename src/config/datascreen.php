@@ -6,7 +6,7 @@ return [
      */
     'api_key' => env('DATASCREEN_API_KEY'),
     
-    'base_uri' => 'http://api.datascreen.com',
+    'base_uri' => 'https://private-anon-ec467565fe-datascreen.apiary-mock.com',
 
     'account' => 'siqwell',
     
