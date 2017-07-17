@@ -11,7 +11,7 @@ use Siqwell\Eagle\Mappers\TranslationMapper;
 
 class TransactionApi extends AbstractApi
 {
-    public function update(Transaction $transaction, array $options = []) : ?Transaction
+    public function update(Transaction $transaction, array $options = []) : array
     {
         $parameters = array_merge(
             [$transaction],

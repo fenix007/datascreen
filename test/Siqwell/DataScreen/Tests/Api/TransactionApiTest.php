@@ -36,8 +36,8 @@ class TransactionApiTest extends TestCase
             $this->getDataFromFile($this->getAbsolutePath(Methods::TRANSACTION_UPDATE['path'], 'json'))
         );
 
-        $transaction = $this->transactionApi->update($transaction);
+        $result = $this->transactionApi->update($transaction);
 
-        $this->assertInstanceOf(Transaction::class, $transaction);
+        $this->assertArrayHasKey('callback', $result);
     }
 }
