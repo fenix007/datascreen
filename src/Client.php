@@ -15,6 +15,6 @@ class Client extends \Fenix007\Wrapper\Client
      */
     public function Translation() : TransactionApi
     {
-        return new TransactionApi($this->client, new Methods());
+        return new TransactionApi($this->client);
     }
 }
