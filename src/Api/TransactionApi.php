@@ -2,14 +2,11 @@
 
 namespace Siqwell\DataScreen\Api;
 
-use Fenix007\Wrapper\Api\AbstractApi;
 use Fenix007\Wrapper\HttpClient\Request;
-use Siqwell\DataScreen\Mappers\TransactionMapper;
 use Siqwell\DataScreen\Methods;
 use Siqwell\DataScreen\Models\Transaction;
-use Siqwell\Eagle\Mappers\TranslationMapper;
 
-class TransactionApi extends AbstractApi
+class TransactionApi extends Api
 {
     public function update(Transaction $transaction, array $options = []) : array
     {
@@ -20,6 +17,8 @@ class TransactionApi extends AbstractApi
 
         $result = $this->get(
             Request::createFromMethod(Methods::TRANSACTION_UPDATE, $parameters)
+            ->addTimestamp()
+            ->addSignature($transaction->internal_id)
         );
 
         return $result;
